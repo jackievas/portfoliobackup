@@ -9,13 +9,15 @@ function fetchAndProcessJSON() {
         .then(data => {
             console.log('JSON Data:', data);
 
-           
-            const jobTitles = data.production_jobs.map(job => job.title);
-            console.log('Job Titles:', jobTitles);
+            if (data.production_jobs) {
+                const jobTitles = data.production_jobs.map(job => job.title);
+                console.log('Job Titles:', jobTitles);
 
-            // Display job titles on the webpage
-            const jobTitlesOutput = document.getElementById('jobTitles');
-            jobTitlesOutput.textContent = 'Job Titles: ' + jobTitles.join(', ');
+                const jobTitlesOutput = document.getElementById('jobTitles');
+                jobTitlesOutput.textContent = 'Job Titles: ' + jobTitles.join(', ');
+            } else {
+                console.error('Invalid JSON format. Check the structure of production_jobs_data.json.');
+            }
         })
         .catch(error => console.error('Error fetching JSON:', error));
 }
