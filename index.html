@@ -9,19 +9,37 @@
 
 <body>
     <header>
-        <h1>Welcome to Jackie Vas's Portfolio</h1>
+        <h1>Welcome to Jackie Vas' Portfolio</h1>
     </header>
 
-    <!-- Add a link to the XML file -->
+    <!-- Add links to XML and JSON data -->
     <section>
-        <h2>Examples</h2>
-        <p>Example XML data: <a href="employee_data.xml" target="_blank">Employee Data XML</a></p>
-      
-        <p>Example JSON data: <a href="production_jobs_data.json" target="_blank">Production Jobs Data JSON</a></p>
-        
+        <h2>Data Examples</h2>
+        <p>Explore the data:
+            <a href="employee_data.xml" target="_blank">Employee Data XML</a> |
+            <a href="production_jobs_data.json" target="_blank">Production Jobs Data JSON</a>
+        </p>
     </section>
 
-  
+    <!-- JavaScript Code Snippet -->
+    <section>
+        <h2>JavaScript Code</h2>
+        <script src="script.js"></script>
+        <pre id="jsCode"></pre>
+    </section>
+
+    <!-- PHP Code Snippet -->
+    <section>
+        <h2>PHP Code</h2>
+        <?php include('server-side.php'); ?>
+        <pre id="phpCode"></pre>
+    </section>
+
+    <!-- C# (ASP.NET) Code Snippet -->
+    <section>
+        <h2>C# (ASP.NET) Code</h2>
+        @Html.Action("ProcessData", "Employee")
+    </section>
 
     <footer>
         <p>&copy; 2023 Jackie Vas</p>
