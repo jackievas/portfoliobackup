@@ -15,7 +15,7 @@ function fetchAndProcessJSON() {
             console.log('JSON Data:', data);
 
             if (data && data.production_jobs && data.production_jobs.length > 0) {
-                const jobTitles = data.production_jobs.map(job => job.job_title);
+                const jobTitles = data.production_jobs.map(job => job.title);
                 console.log('Job Titles:', jobTitles);
 
                 const jobTitlesOutput = document.getElementById('jobTitles');
