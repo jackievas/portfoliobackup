@@ -1,5 +1,7 @@
 // script.js
 
+console.log('Script is running...');
+
 // Function to fetch and process JSON data
 function fetchAndProcessJSON() {
     fetch('production_jobs_data.json')
