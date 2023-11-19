@@ -1,0 +1,24 @@
+// production_jobs_data.json
+{
+  "production_jobs": [
+    {
+      "job_title": "Machine Operator",
+      "department": "Production",
+      "shift": "Day Shift",
+      "salary": 50000
+    },
+    {
+      "job_title": "Quality Control Technician",
+      "department": "Quality Assurance",
+      "shift": "Night Shift",
+      "salary": 55000
+    },
+    {
+      "job_title": "Production Supervisor",
+      "department": "Management",
+      "shift": "Swing Shift",
+      "salary": 60000
+    }
+   
+  ]
+}
