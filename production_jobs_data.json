@@ -1,24 +1,20 @@
-
 {
   "production_jobs": [
     {
-      "job_title": "Machine Operator",
-      "department": "Production",
-      "shift": "Day Shift",
-      "salary": 50000
+      "title": "Software Engineer",
+      "department": "Engineering",
+      "location": "City A"
     },
     {
-      "job_title": "Quality Control Technician",
+      "title": "Data Analyst",
+      "department": "Analytics",
+      "location": "City B"
+    },
+    {
+      "title": "Quality Assurance Specialist",
       "department": "Quality Assurance",
-      "shift": "Night Shift",
-      "salary": 55000
-    },
-    {
-      "job_title": "Production Supervisor",
-      "department": "Management",
-      "shift": "Swing Shift",
-      "salary": 60000
+      "location": "City C"
     }
-   
+    
   ]
 }
