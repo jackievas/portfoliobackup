@@ -2,6 +2,7 @@ console.log('Script is running...');
 
 // Function to fetch and process JSON data
 function fetchAndProcessJSON() {
+    // Fetching and processing JSON data
     fetch('production_jobs_data.json')
         .then(response => {
             if (!response.ok) {
@@ -27,6 +28,7 @@ function fetchAndProcessJSON() {
 
 // Function to fetch and process XML data
 function fetchAndProcessXML() {
+    // Fetching and processing XML data
     fetch('employee_data.xml')
         .then(response => response.text())
         .then(xmlString => {
@@ -53,6 +55,7 @@ function fetchAndProcessXML() {
 
 // Function to fetch and process both JSON and XML data
 function fetchAndProcessData() {
+    // Calling both JSON and XML data fetching functions
     fetchAndProcessJSON();
     fetchAndProcessXML();
 }
