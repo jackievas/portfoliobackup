@@ -15,10 +15,10 @@ function fetchAndProcessJSON() {
 
             if (data && data.production_jobs && data.production_jobs.length > 0) {
                 const jobTitles = data.production_jobs.map(job => job.title);
-                console.log('Job Titles:', jobTitles); // Job titles from JSON data are logged
+                console.log('Job Titles from JSON:', jobTitles); // Job titles from JSON data are logged
 
                 const jobTitlesOutput = document.getElementById('jobTitles');
-                jobTitlesOutput.textContent = 'Job Titles: ' + jobTitles.join(', ');
+                jobTitlesOutput.textContent = 'Job Titles from JSON: ' + jobTitles.join(', ');
             } else {
                 console.error('Invalid JSON format or empty production_jobs array.');
             }
@@ -48,7 +48,7 @@ function fetchAndProcessXML() {
 
             // Display employee names on the webpage
             const employeeNamesOutput = document.getElementById('employeeNames');
-            employeeNamesOutput.textContent = 'Employee Names: ' + employeeNamesFromXML.join(', ');
+            employeeNamesOutput.textContent = 'Employee Names from XML: ' + employeeNamesFromXML.join(', ');
         })
         .catch(error => console.error('Error fetching or parsing XML:', error));
 }
