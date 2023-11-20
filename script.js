@@ -1,3 +1,31 @@
+console.log('Script is running...');
+
+// Function to fetch and process JSON data
+function fetchAndProcessJSON() {
+    fetch('production_jobs_data.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('JSON Data:', data);
+
+            if (data && data.production_jobs && data.production_jobs.length > 0) {
+                const jobTitles = data.production_jobs.map(job => job.title);
+                console.log('Job Titles:', jobTitles);
+
+                const jobTitlesOutput = document.getElementById('jobTitles');
+                jobTitlesOutput.textContent = 'Job Titles: ' + jobTitles.join(', ');
+            } else {
+                console.error('Invalid JSON format or empty production_jobs array.');
+            }
+        })
+        .catch(error => console.error('Error fetching or parsing JSON:', error));
+}
+
+// Function to fetch and process XML data
 function fetchAndProcessXML() {
     fetch('employee_data.xml')
         .then(response => response.text())
@@ -22,3 +50,12 @@ function fetchAndProcessXML() {
         })
         .catch(error => console.error('Error fetching or parsing XML:', error));
 }
+
+// Function to fetch and process both JSON and XML data
+function fetchAndProcessData() {
+    fetchAndProcessJSON();
+    fetchAndProcessXML();
+}
+
+// Call the combined function
+fetchAndProcessData();
