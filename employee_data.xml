@@ -4,21 +4,11 @@
         <id>1</id>
         <name>Alice Green</name>
         <position>Production Supervisor</position>
-        <department>Manufacturing</department>
-        <role>Plant Operator</role>
-        <experience>5 years</experience>
-        <shift>Day Shift</shift>
-        <salary>60000</salary>
     </employee>
     <employee>
         <id>2</id>
         <name>Bob Turner</name>
         <position>Quality Control Technician</position>
-        <department>Quality Assurance</department>
-        <role>Lab Analyst</role>
-        <experience>3 years</experience>
-        <shift>Night Shift</shift>
-        <salary>55000</salary>
     </employee>
    
 </employees>
