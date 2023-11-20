@@ -10,11 +10,11 @@ function fetchAndProcessJSON() {
             return response.json();
         })
         .then(data => {
-            console.log('JSON Data:', data);
+            console.log('JSON Data:', data); // JSON data is logged
 
             if (data && data.production_jobs && data.production_jobs.length > 0) {
                 const jobTitles = data.production_jobs.map(job => job.title);
-                console.log('Job Titles:', jobTitles);
+                console.log('Job Titles:', jobTitles); // Job titles from JSON data are logged
 
                 const jobTitlesOutput = document.getElementById('jobTitles');
                 jobTitlesOutput.textContent = 'Job Titles: ' + jobTitles.join(', ');
@@ -38,11 +38,11 @@ function fetchAndProcessXML() {
                 throw new Error('Error parsing XML');
             }
 
-            console.log('XML Data:', xmlDoc);
+            console.log('XML Data:', xmlDoc); // XML data is logged
 
             const employeeNameElements = xmlDoc.getElementsByTagName('name');
             const employeeNamesFromXML = Array.from(employeeNameElements).map(nameElement => nameElement.textContent);
-            console.log('Employee Names from XML:', employeeNamesFromXML);
+            console.log('Employee Names from XML:', employeeNamesFromXML); // Employee names from XML data are logged
 
             // Display employee names on the webpage
             const employeeNamesOutput = document.getElementById('employeeNames');
