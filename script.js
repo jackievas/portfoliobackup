@@ -2,7 +2,6 @@ console.log('Script is running...');
 
 // Function to fetch and process JSON data
 function fetchAndProcessJSON() {
-    // Fetching and processing JSON data
     fetch('production_jobs_data.json')
         .then(response => {
             if (!response.ok) {
@@ -11,54 +10,62 @@ function fetchAndProcessJSON() {
             return response.json();
         })
         .then(data => {
-            console.log('JSON Data:', data); // JSON data is logged
+            console.log('JSON Data:', data);
 
             if (data && data.production_jobs && data.production_jobs.length > 0) {
                 const jobTitles = data.production_jobs.map(job => job.title);
-                console.log('Job Titles from JSON:', jobTitles); // Job titles from JSON data are logged
+                console.log('Job Titles from JSON:', jobTitles);
 
                 const jobTitlesOutput = document.getElementById('jobTitles');
-                jobTitlesOutput.textContent = 'Job Titles from JSON: ' + jobTitles.join(', ');
+                if (jobTitlesOutput) {
+                    jobTitlesOutput.textContent = 'Job Titles from JSON: ' + jobTitles.join(', ');
+                } else {
+                    console.error('Element with ID "jobTitles" not found.');
+                }
             } else {
                 console.error('Invalid JSON format or empty production_jobs array.');
             }
         })
-        .catch(error => console.error('Error fetching or parsing JSON:', error));
+        .catch(error => {
+            console.error('Error fetching or parsing JSON:', error.message);
+        });
 }
 
 // Function to fetch and process XML data
 function fetchAndProcessXML() {
-    // Fetching and processing XML data
     fetch('employee_data.xml')
         .then(response => response.text())
         .then(xmlString => {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
 
-            // Check if XML parsing was successful
             if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
                 throw new Error('Error parsing XML');
             }
 
-            console.log('XML Data:', xmlDoc); // XML data is logged
+            console.log('XML Data:', xmlDoc);
 
             const employeeNameElements = xmlDoc.getElementsByTagName('name');
             const employeeNamesFromXML = Array.from(employeeNameElements).map(nameElement => nameElement.textContent);
-            console.log('Employee Names from XML:', employeeNamesFromXML); // Employee names from XML data are logged
+            console.log('Employee Names from XML:', employeeNamesFromXML);
 
-            // Display employee names on the webpage
             const employeeNamesOutput = document.getElementById('employeeNames');
-            employeeNamesOutput.textContent = 'Employee Names from XML: ' + employeeNamesFromXML.join(', ');
+            if (employeeNamesOutput) {
+                employeeNamesOutput.textContent = 'Employee Names from XML: ' + employeeNamesFromXML.join(', ');
+            } else {
+                console.error('Element with ID "employeeNames" not found.');
+            }
         })
-        .catch(error => console.error('Error fetching or parsing XML:', error));
+        .catch(error => {
+            console.error('Error fetching or parsing XML:', error.message);
+        });
 }
 
 // Function to fetch and process both JSON and XML data
 function fetchAndProcessData() {
-    // Calling both JSON and XML data fetching functions
     fetchAndProcessJSON();
     fetchAndProcessXML();
 }
 
-// Call the combined function
-fetchAndProcessData();
+// Call the combined function after the DOM has fully loaded
+document.addEventListener('DOMContentLoaded', fetchAndProcessData);
