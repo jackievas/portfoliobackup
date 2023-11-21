@@ -1,19 +1,19 @@
 {
-  "production_jobs": [
-    {
-      "title": "Software Engineer",
-      "salary": 80000,
-      "qualifications": ["Bachelor's degree in Computer Science", "Experience with JavaScript and Node.js", "Strong problem-solving skills", "Excellent teamwork abilities"]
-    },
-    {
-      "title": "Data Analyst",
-      "salary": 60000,
-      "qualifications": ["Bachelor's degree in Statistics or related field", "Experience with data analysis tools (e.g., Python, R)", "Strong analytical and problem-solving skills", "Effective communication skills"]
-    },
-    {
-      "title": "Quality Assurance Specialist",
-      "salary": 70000,
-      "qualifications": ["Bachelor's degree in Quality Assurance or related field", "Experience with testing frameworks", "Attention to detail", "Strong communication skills"]
-    }
-  ]
+    "production_jobs": [
+        {
+            "title": "Software Engineer",
+            "salary": 80000,
+            "qualifications": ["Bachelor's degree in Computer Science", "Experience with JavaScript and Node.js", "Strong problem-solving skills", "Excellent teamwork abilities"]
+        },
+        {
+            "title": "Data Analyst",
+            "salary": 60000,
+            "qualifications": ["Bachelor's degree in Statistics or related field", "Experience with data analysis tools (e.g., Python, R)", "Strong analytical and problem-solving skills", "Effective communication skills"]
+        },
+        {
+            "title": "Quality Assurance Specialist",
+            "salary": 70000,
+            "qualifications": ["Bachelor's degree in Quality Assurance or related field", "Experience with testing frameworks", "Attention to detail", "Strong communication skills"]
+        }
+    ]
 }
