@@ -14,11 +14,12 @@ function fetchAndProcessJSON() {
             console.log('JSON Data:', data); // JSON data is logged
 
             if (data && data.production_jobs && data.production_jobs.length > 0) {
-                const jobTitles = data.production_jobs.map(job => job.title);
-                console.log('Job Titles from JSON:', jobTitles); // Job titles from JSON data are logged
+                const jobDetails = data.production_jobs
+                    .map(job => `<tr><td>${job.title}</td><td>${job.salary}</td><td>${job.qualifications.join(', ')}</td></tr>`);
+                console.log('Job Details from JSON:', jobDetails); // Job details from JSON data are logged
 
-                const jobTitlesOutput = document.getElementById('jobTitles');
-                jobTitlesOutput.textContent = 'Job Titles from JSON: ' + jobTitles.join(', ');
+                const jobDetailsOutput = document.getElementById('jobTableBody');
+                jobDetailsOutput.innerHTML = jobDetails.join('');
             } else {
                 console.error('Invalid JSON format or empty production_jobs array.');
             }
@@ -42,13 +43,19 @@ function fetchAndProcessXML() {
 
             console.log('XML Data:', xmlDoc); // XML data is logged
 
-            const employeeNameElements = xmlDoc.getElementsByTagName('name');
-            const employeeNamesFromXML = Array.from(employeeNameElements).map(nameElement => nameElement.textContent);
-            console.log('Employee Names from XML:', employeeNamesFromXML); // Employee names from XML data are logged
+            const employeeElements = xmlDoc.getElementsByTagName('employee');
+            const employeeDetails = Array.from(employeeElements)
+                .map(employee => {
+                    const id = employee.querySelector('id').textContent;
+                    const name = employee.querySelector('name').textContent;
+                    const position = employee.querySelector('position').textContent;
+                    return `<tr><td>${id}</td><td>${name}</td><td>${position}</td></tr>`;
+                });
 
-            // Display employee names on the webpage
-            const employeeNamesOutput = document.getElementById('employeeNames');
-            employeeNamesOutput.textContent = 'Employee Names from XML: ' + employeeNamesFromXML.join(', ');
+            console.log('Employee Details from XML:', employeeDetails); // Employee details from XML data are logged
+
+            const employeeTableBody = document.getElementById('employeeTableBody');
+            employeeTableBody.innerHTML = employeeDetails.join('');
         })
         .catch(error => console.error('Error fetching or parsing XML:', error));
 }
@@ -62,3 +69,4 @@ function fetchAndProcessData() {
 
 // Call the combined function
 fetchAndProcessData();
+
