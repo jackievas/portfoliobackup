@@ -19,7 +19,11 @@ function fetchAndProcessJSON() {
                 console.log('Job Details from JSON:', jobDetails); // Job details from JSON data are logged
 
                 const jobDetailsOutput = document.getElementById('jobTableBody');
-                jobDetailsOutput.innerHTML = jobDetails.join('');
+                if (jobDetailsOutput) {
+                    jobDetailsOutput.innerHTML = jobDetails.join('');
+                } else {
+                    console.error('Element with ID "jobTableBody" not found.');
+                }
             } else {
                 console.error('Invalid JSON format or empty production_jobs array.');
             }
@@ -55,7 +59,11 @@ function fetchAndProcessXML() {
             console.log('Employee Details from XML:', employeeDetails); // Employee details from XML data are logged
 
             const employeeTableBody = document.getElementById('employeeTableBody');
-            employeeTableBody.innerHTML = employeeDetails.join('');
+            if (employeeTableBody) {
+                employeeTableBody.innerHTML = employeeDetails.join('');
+            } else {
+                console.error('Element with ID "employeeTableBody" not found.');
+            }
         })
         .catch(error => console.error('Error fetching or parsing XML:', error));
 }
@@ -68,5 +76,4 @@ function fetchAndProcessData() {
 }
 
 // Call the combined function
-fetchAndProcessData();
-
+document.addEventListener('DOMContentLoaded', fetchAndProcessData);
